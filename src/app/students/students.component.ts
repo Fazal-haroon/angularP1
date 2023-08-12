@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Student} from "../student"
-import {STUDENTS} from "../student-records";
+import {StudentService} from "../student.service";
 
 @Component({
   selector: 'app-students',
@@ -16,15 +16,21 @@ export class StudentsComponent implements OnInit{
     age: 60
   };
 
-  students = STUDENTS;
+  students : Student[] = [];
   selectedStudentAge: number = 0;
   onSelect(age: number) {
     this.selectedStudentAge = age;
   }
 
-  constructor() {
+  constructor(private studentService: StudentService) {
   }
 
   ngOnInit(): void { //life cycle hook
+    this.getStudents();
+  }
+
+  getStudents() {
+    // let obj = new StudentService();
+    this.students = this.studentService.getStudents();
   }
 }

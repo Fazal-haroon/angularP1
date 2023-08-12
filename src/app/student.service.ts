@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import {Student} from "./student";
+import {STUDENTS} from "./student-records";
 
 @Injectable({
   providedIn: 'root'
@@ -6,4 +8,8 @@ import { Injectable } from '@angular/core';
 export class StudentService {
 
   constructor() { }
+
+  getStudents(): Student[]{
+    return STUDENTS;
+  }
 }
