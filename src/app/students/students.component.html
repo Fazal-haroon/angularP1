@@ -1,6 +1,18 @@
-<p>students works! - {{student}}</p>
+<div id="studentdiv">
+    <p>students works! - {{student}}</p>
 
-<p>student1 id - {{student1.id}}</p>
-<p>student1 name - {{student1.name}}</p>
+    <p>student1 id - {{student1.id}}</p>
+    <p>student1 name - {{student1.name}}</p>
 
-<input [(ngModel)]="student1.name" placeholder="someone name" />
+    <input [(ngModel)]="student1.name" placeholder="someone name"/>
+
+    <br>
+    <br>
+
+    <div *ngFor="let student of students">
+        <p>student id - {{student.id}}</p>
+        <button type="button" (click)="onSelect(student.age)">show {{student.name}} Age!</button>
+    </div>
+
+    <app-student-age [studentAge]=selectedStudentAge></app-student-age>
+</div>
